@@ -26,6 +26,9 @@ inputs:
   destination_ssh_private_key:
     description: SSH key used to authenticate with destination ssh url provided (optional if public or https url with authentication)
     required: false
+  destination_repo_user:
+    description: Username for destination repository
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -38,3 +41,4 @@ runs:
     - ${{ inputs.source_branch }}
     - ${{ inputs.destination_repo }}
     - ${{ inputs.destination_branch }}
+    - ${{ inputs.destination_repo_user }}
