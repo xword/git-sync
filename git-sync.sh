@@ -46,7 +46,7 @@ git --no-pager branch -a -vv
 
 if [[ -n "$DESTINATION_SSH_PRIVATE_KEY" ]]; then
   # Push using destination ssh key if provided
-  git config --local core.sshCommand "/usr/bin/ssh -i ~/.ssh/dst_rsa -l ${DESTINATION_REPO_USER}"
+  git config --local core.sshCommand "/usr/bin/ssh -i ~/.ssh/dst_rsa"
 fi
 
 git push destination "${SOURCE_BRANCH}:${DESTINATION_BRANCH}" -f
