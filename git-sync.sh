@@ -6,7 +6,6 @@ SOURCE_REPO=$1
 SOURCE_BRANCH=$2
 DESTINATION_REPO=$3
 DESTINATION_BRANCH=$4
-DESTINATION_REPO_USER=$5
 
 if ! echo $SOURCE_REPO | grep -Eq ':|@|\.git\/?$'; then
   if [[ -n "$SSH_PRIVATE_KEY" || -n "$SOURCE_SSH_PRIVATE_KEY" ]]; then
@@ -43,6 +42,8 @@ git fetch source '+refs/heads/*:refs/heads/*' --update-head-ok
 
 # Print out all branches
 git --no-pager branch -a -vv
+
+ls -al ~/.ssh/
 
 if [[ -n "$DESTINATION_SSH_PRIVATE_KEY" ]]; then
   # Push using destination ssh key if provided
